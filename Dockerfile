@@ -35,7 +35,7 @@ RUN set -x \
 		openjdk8-jre="$JAVA_ALPINE_VERSION" \
         nodejs="$NODEJS_ALPINE_VERSION" nodejs-npm \
         python3 groff \
-        bash libc6-compat git \
+        bash gcompat git \
     && pip3 install --no-cache-dir awscli \
 	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
 
