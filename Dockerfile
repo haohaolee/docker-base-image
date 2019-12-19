@@ -36,7 +36,8 @@ RUN set -x \
         nodejs="$NODEJS_ALPINE_VERSION" nodejs-npm \
         python3 groff \
         bash libc6-compat gcompat git java-jffi-native \
-    && cd /lib && ln -sf libgcompat.so.0 libc.musl-x86_64.so.1 \
+    && ln -sf /lib/ld-linux-x86-64.so.2 /lib64/ \
+    && ln -sf /lib/libgcompat.so.0 /lib/libc.musl-x86_64.so.1 \
     && pip3 install --no-cache-dir awscli \
 	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
 
